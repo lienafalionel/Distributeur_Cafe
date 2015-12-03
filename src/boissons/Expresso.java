@@ -9,7 +9,7 @@ public class Expresso extends Boisson {
 	
 	@Override
 	public String getDescription() {
-		return "- Expresso";
+		return "Expresso";
 	}
 
 }

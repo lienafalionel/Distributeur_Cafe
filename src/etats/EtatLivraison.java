@@ -4,55 +4,72 @@ import distributeur.Distributeur;
 
 public class EtatLivraison extends EtatAbstrait {
 
-	public EtatLivraison(Distributeur unDistributeur) {
-		super(unDistributeur);
-	}
+    private double[] pieces;
 
-	@Override
-	public void insererUnePiece() {
-		// TODO Auto-generated method stub
+    public EtatLivraison(Distributeur unDistributeur) {
+        super(unDistributeur);
+        pieces = new double[] { 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
+    }
 
-	}
+    @Override
+    public void insererUnePiece(double unePiece) {
+        System.out.println("Votre boisson est en cours de livraison.");
+    }
 
-	@Override
-	public void ejecterPiece() {
-		// TODO Auto-generated method stub
+    @Override
+    public void ejecterPiece() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    }
 
-	}
+    @Override
+    public void ajouterDoseSucre() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    };
 
-	@Override
-	public void doserSucre() {
-		// TODO Auto-generated method stub
+    @Override
+    public void enleverDoseSucre() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    };
 
-	}
+    @Override
+    public void ajouterIngredient() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    }
 
-	@Override
-	public void ajouterIngredient() {
-		// TODO Auto-generated method stub
+    @Override
+    public void choisirBoisson() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    }
 
-	}
+    @Override
+    public void rendrePiece() {
+        System.out.print("Rendu monnaie: ");
+        double resteARendre = distributeur.getRenduMonnaie();
+        for (double piece : pieces) {
+            if (resteARendre / piece >= 1) {
+                int nombrePiece = (int) (resteARendre / piece);
+                System.out.print(nombrePiece + " x " + piece + "€ \t");
+                resteARendre -= nombrePiece * piece;
+            }
+        }
+        System.out.println("");
+        distributeur.changeEtat(EnumEtat.LIVRAISON);
+    }
 
-	@Override
-	public void choisirBoisson() {
-		// TODO Auto-generated method stub
+    @Override
+    public void prendreGobelet() {
+        System.out.println("Biiiiiiiiiip. Vous pouvez prendre votre boisson.");
+        distributeur.changeEtat(EnumEtat.PAS_DE_PIECE);
+    }
 
-	}
+    @Override
+    public void confirmerChoixBoisson() {
+        System.out.println("Votre boisson est en cours de livraison.");
+    }
 
-	@Override
-	public void rendrePiece() {
-		// TODO Auto-generated method stub
+    @Override
+    public void delivrerChocolat() {
 
-	}
-
-	@Override
-	public void prendreGobelet() {
-		distributeur.changeEtat(EnumEtat.PAS_DE_PIECE);
-	}
-
-	@Override
-	public void confirmerBoisson() {
-		// TODO Auto-generated method stub
-		
-	}
+    }
 
 }

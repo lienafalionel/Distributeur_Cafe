@@ -2,10 +2,14 @@ package boissons;
 
 public class CafeLongGrains extends Boisson {
 
-	@Override
-	public double cout() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public double cout() {
+        return 0.30;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Café long grains";
+    }
 
 }
